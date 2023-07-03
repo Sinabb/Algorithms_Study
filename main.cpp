@@ -20,9 +20,8 @@ void Swap(int value1, int value2)
 
 // ----------------------
 // Sequential Sort
-
-// time : 0(n^2
-// space : 0(1) / 0(n)
+// time : O(n^2)
+// space :  O(n)
 void Sequential(int input[], int size)
 {
 	for (int i = 0; i < size; i++)
@@ -38,13 +37,48 @@ void Sequential(int input[], int size)
 }
 
 //Selection Sort
+//time: O(n^2)
+//space: O(n)
+void SelectionSort(int input[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		int minIndex = i;
+		for (int j = 0; j < size; j++)
+		{
+			if (input[minIndex] > input[j])
+			{
+				minIndex = j;
+			}
+		}
+	}
+}
+
+//bubble Sort
+//time: O(n^2)
+//space: O(n)
+void bubbleSort(int input[], int size)
+{
+	for (int i = 0; i < size-1; i++)
+	{
+		for (int j = 0; j < size - 1; j++)
+		{
+			if (input[j]>input[j+1])
+			{
+				Swap(input[j], input[j + 1]);
+			}
+		}
+	}
+}
 
 int main()
 {
 	const int ARRAY_SIZE{ 5 };
 	int array[ARRAY_SIZE]{ 8,7,2,3,1 };
 
-	Sequential(array, ARRAY_SIZE);
+	//Sequential(array, ARRAY_SIZE);
+	//SelectionSort(array, ARRAY_SIZE);
+	bubbleSort(array, ARRAY_SIZE);
 	print(array, ARRAY_SIZE);
 }
 
